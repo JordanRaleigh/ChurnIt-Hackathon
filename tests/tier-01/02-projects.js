@@ -171,7 +171,7 @@ describe('Tier One: Projects', () => {
       expect(reduxStateBeforeMount.projects).to.deep.equal([]);
       mount(
         <Provider store={store}>
-          <MemoryRouter initialEntries={['/']}>
+          <MemoryRouter initialEntries={['/projects']}>
             <Routes />
           </MemoryRouter>
         </Provider>
