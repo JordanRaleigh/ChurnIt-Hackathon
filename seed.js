@@ -1,12 +1,17 @@
 const { green, red } = require('chalk');
-const { db, Project, Robot } = require('./server/db');
+const { db, Account, Category, Perk, CreditCard } = require('./server/db');
+const creditCard = require('./seedData/creditCard');
+const account = require('./seedData/account');
+const category = require('./seedData/category');
+const perk = require('./seedData/perk');
 
 const seed = async () => {
   try {
     await db.sync({ force: true });
-
-    // seed your database here!
-
+    await CreditCard.bulkCreate(creditCard);
+    await Category.bulkCreate(category);
+    await Account.bulkCreate(account);
+    await Perk.bulkCreate(perk);
   } catch (err) {
     console.log(red(err));
   }

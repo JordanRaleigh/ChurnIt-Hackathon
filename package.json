@@ -1,5 +1,5 @@
 {
-  "name": "final_project",
+  "name": "churnit",
   "version": "0.0.1",
   "description": "A review time project",
   "main": "index.js",
@@ -21,6 +21,7 @@
     "body-parser": "^1.18.2",
     "chalk": "^2.4.1",
     "express": "^4.14.0",
+    "moment": "^2.27.0",
     "pg": "^7.4.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
