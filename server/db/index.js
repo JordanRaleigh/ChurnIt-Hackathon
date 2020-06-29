@@ -12,8 +12,11 @@ const CreditCard = require('./creditCard');
 
 CreditCard.belongsToMany(Category, { through: Perk });
 Category.belongsToMany(CreditCard, { through: Perk });
+Perk.belongsTo(CreditCard);
+Perk.belongsTo(Category);
 Account.belongsTo(CreditCard);
 CreditCard.hasMany(Account);
+CreditCard.hasMany(Perk);
 
 module.exports = {
   // Include your models in this exports object as well!

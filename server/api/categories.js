@@ -1,11 +1,26 @@
 const router = require('express').Router();
-const { Account, Category, Perk, CreditCard } = require('../db');
+const { Category, Perk, CreditCard } = require('../db');
 
 router.get('/', async (req, res, next) => {
   try {
-    console.log('helloAPI:ghjk');
     const categories = await Category.findAll();
-    res.status(200).json(categories);
+    res.json(categories);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/:categoryId', async (req, res, next) => {
+  try {
+    const { categoryId } = req.params;
+    // const category = await Category.findByPk(categoryId);
+    const perk = await Perk.findAll({
+      where: {
+        categoryId,
+      },
+      include: [CreditCard, Category],
+    });
+    res.json(perk);
   } catch (error) {
     next(error);
   }

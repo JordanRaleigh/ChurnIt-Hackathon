@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import projectsReducer from './projects';
-import robotsReducer from './robots';
+import categories from './categories';
+import singleCategory from './singleCategory';
+import singleCreditCard from './singleCreditCard';
 
 const appReducer = combineReducers({
-  projects: projectsReducer,
-  robots: robotsReducer,
+  categories,
+  singleCategory,
+  singleCreditCard,
 });
 
 export default appReducer;

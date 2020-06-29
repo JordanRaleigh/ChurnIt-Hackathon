@@ -1,17 +1,46 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+  Link,
+  Redirect,
+} from 'react-router-dom';
+import AllCategories from './AllCategories';
+import SingleCategory from './SingleCategory';
+import SingleCreditCard from './SingleCreditCard';
 
 const Routes = () => {
+  // debugger;
   return (
     <Router>
       <div>
-        <nav>Welcome!</nav>
+        {/* <nav>
+          Welcome!
+          <ul>
+            <li>
+              <NavLink to="/categories">Home</NavLink>
+            </li>
+          </ul>
+        </nav> */}
         <main>
-          <h1>
-            Welcome to ChurnIt, select a category below to see which credit card
-            you should use!
-          </h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/categories" />
+            </Route>
+            <Route
+              exact
+              path="/categories/:categoryId"
+              component={SingleCategory}
+            />
+            <Route exact path="/categories" component={AllCategories} />
+            <Route
+              exact
+              path="/creditcards/:creditCardId"
+              component={SingleCreditCard}
+            />
+          </Switch>
         </main>
       </div>
     </Router>

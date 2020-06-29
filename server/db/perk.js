@@ -9,7 +9,7 @@ const Perk = db.define('perk', {
     type: Sequelize.INTEGER,
   },
   points: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.FLOAT,
   },
 });
 

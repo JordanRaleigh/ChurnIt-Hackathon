@@ -19,6 +19,8 @@ const router = require('express').Router();
 
 router.use('/categories', require('./categories'));
 
+router.use('/creditcards', require('./creditCards'));
+
 router.use((req, res, next) => {
   const err = new Error('API route not found!');
   err.status = 404;
